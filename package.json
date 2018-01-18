@@ -13,6 +13,7 @@
     "axios": "^0.17.1",
     "mini-toastr": "^0.7.2",
     "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
     "vue": "^2.5.11",
     "vue-notifications": "^0.9.0",
     "vue-router": "^3.0.1",

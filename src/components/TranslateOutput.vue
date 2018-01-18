@@ -1,21 +1,25 @@
 <template>
   <ul v-if="translations.length != 0" class="box-list">
-    <li v-for="translation in translations" ref='index' class="box">
+    <button @click="handleSaveTranslation(translations, translations[0])" class="button is-warning button-save">
+      <i class="fa fa-floppy-o "></i>
+    </button>
+    <li v-for="translation in translations" ref='index'>
       <div class="box-header">
         <p>{{translation.text}} [{{translation.ts}}] {{ translation.pos }}</p>
-        <button @click="handleSaveTranslation(translations, translation)" class="button is-info">
-          <i class="fa fa-floppy-o "></i>
-        </button>
       </div>
-      <ul>
+      <ol>
         <li v-for="tr in translation.tr">
-          {{tr.text}}
-          (<span v-for="(meaning, index) in tr.mean">{{meaning.text}}<span v-if="index + 1 < tr.mean.length">, </span></span>)
+          <p>
+            {{tr.text}}
+            <span v-for="(variant, index) in tr.syn">{{ variant.text }}<span v-if="index + 1 < tr.mean.length">, </span>
+            </span>
+          </p>
+          (<span v-for="(meaning, index) in tr.mean">{{ meaning.text }}<span v-if="index + 1 < tr.mean.length">, </span></span>)
           <div v-for="example in tr.ex">
             <p>{{example.text}} - {{example.tr[0].text}}</p>
           </div>
         </li>
-      </ul>
+      </ol>
 
     </li>
   </ul>
@@ -37,10 +41,18 @@ export default {
 </script>
 <style lang="css" scoped>
   .box-list {
-    padding: 0;
     margin: 30px 0;
-
+    list-style:none;
+    background: #fff;
+    padding: 16px 20px;
+    position: relative;
   }
+  .button-save {
+    position:absolute;
+    right: 0;
+    margin-right: 16px;
+  }
+
   .box-header {
     display: flex;
     align-items: center;

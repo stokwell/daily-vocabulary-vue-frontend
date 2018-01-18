@@ -1,14 +1,21 @@
 <template lang="html">
-  <div id="layout" class="pure-g">
-    <div class="sidebar">
-      <SideBar />
-    </div>
-    <div class="content">
-      <Header />
-      <router-view></router-view>
-    </div>
-  </div>
+  <div id="layout">
+    <Header />
 
+
+    <div class="container">
+      <div class="columns">
+        <div class="column is-3 sidebar">
+          <SideBar />
+        </div>
+
+        <div class="column content">
+            <router-view></router-view>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
@@ -39,44 +46,7 @@ export default {
 </script>
 
 <style lang="css">
- #layout {
-   height: 100vh;
- }
+  #layout {
 
- #app {
-   height: 100vh;
- }
-
- #sidebar {
-   color: #fff;
-   text-align: center;
- }
-
- #sidebar li a {
-   text-decoration: none !important;
-   color: #fff;
- }
-
- @media (min-width: 48em) {
-     .content {
-      margin-left: 25%;
-     }
-
-     .header {
-         margin: 80% 2em 0;
-         text-align: center;
-     }
-
-     .sidebar {
-         position: fixed;
-         top: 0;
-         bottom: 0;
-         width:25%;
-     }
-
-     .footer {
-         text-align: center;
-     }
- }
-
+  }
 </style>

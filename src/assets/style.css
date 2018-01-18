@@ -1,34 +1,4 @@
 #app {
   height: 100vh;
-}
-
-#sidebar {
-  color: #fff;
-  text-align: center;
-}
-
-#sidebar li a {
-  text-decoration: none !important;
-}
-
-@media (min-width: 48em) {
-  .content {
-      padding: 2em 3em 0;
-      margin-left: 25%;
-  }
-
-  .header {
-      margin: 80% 2em 0;
-      text-align: right;
-  }
-
-  .sidebar {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-  }
-
-  .footer {
-      text-align: center;
-  }
+  background: #F5F5F5;
 }

@@ -1,24 +1,21 @@
 <template>
-  <form class="pure-form pure-form-aligned login-form" @submit.prevent="login">
-    <fieldset>
-     <h2 class="main-title">Daily Vocabulary</h2>
+  <form class="login-form" @submit.prevent="login">
+     <p class="title is-3">Daily Vocabulary</p>
 
-      <div class="pure-control-group">
-        <label for="email">Email Address</label>
-        <input id="email" type="email" placeholder="Email Address" v-model.lazy="credential.email">
+      <div class="field">
+        <label class="label" for="email">Email Address</label>
+        <input class="input" id="email" type="email" placeholder="Email Address" v-model.lazy="credential.email" >
       </div>
 
-      <div class="pure-control-group">
-        <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Password" v-model.lazy="credential.password">
+      <div class="field">
+        <label class="label" for="password">Password</label>
+        <input class="input" id="password" type="password" placeholder="Password" v-model.lazy="credential.password" >
       </div>
 
       <div class="button-wrapper">
-        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        <button class="button is-warning" type="submit" >Submit</button>
       </div>
-
-    </fieldset>
-</form>
+  </form>
 </template>
 
 <script>
@@ -28,8 +25,8 @@ export default {
   data() {
     return {
       credential: {
-        email: '',
-        password: '',
+        email: 'example@mail.com',
+        password: 'password',
       }
     }
   },
@@ -45,6 +42,8 @@ export default {
 
 <style>
   .login-form {
+    background: #fff;
+    padding: 30px 40px;
     position: absolute;
     left: 50%;
     top: 50%;

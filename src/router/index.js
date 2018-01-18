@@ -8,6 +8,7 @@ import Translation from '../components/Translation'
 import Day from '../components/Day'
 import Login from '../pages/Login'
 import Logout from '../pages/Logout'
+import Quotes from '../pages/Quotes'
 import PageNotFound from '../pages/404'
 import Dashboard from '../pages/Dashboard'
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/quotes',
+      name: 'quotes',
+      component: Quotes
     },
     {
       path: '/logout',
@@ -46,8 +52,8 @@ export default new Router({
         {
           path: '/',
           component: Translation
-        }
-     ]
+        },
+      ]
     },
     {
       path: '/*',

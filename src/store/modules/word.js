@@ -1,17 +1,22 @@
 import axios from 'axios'
 
-const YANDEX_DICTIONARY_API = `https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20171227T131943Z.b0b60611e36d7e6a.296e4b9f91bce940a11dad18a08a8df28009ab0b&lang=en`
+const YANDEX_DICTIONARY_API = `https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20171227T131943Z.b0b60611e36d7e6a.296e4b9f91bce940a11dad18a08a8df28009ab0b&lang=`
 
 const BASE_URL = 'http://localhost:3000/api/words'
+const PRODUCTION_BASE_URL  = 'https://nameless-bayou-47211.herokuapp.com/api/words'
 
 const state = {
-  currentTranslation: []
+  currentTranslation: [],
+  days: []
 }
 
 const mutations = {
   addCurrentTranslationToState(state, payload) {
     state.currentTranslation = payload
-  }
+  },
+  addDaysToState(state, payload) {
+    state.days = payload
+  },
 }
 
 const actions = {
@@ -26,8 +31,8 @@ const actions = {
     })
   },
 
-  getTranslation ({ commit }, { textToTranslate, language }) {
-    axios.get('https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20171227T131943Z.b0b60611e36d7e6a.296e4b9f91bce940a11dad18a08a8df28009ab0b&lang=en' + '-' + language + '&text=' + textToTranslate)
+  getTranslation ({ commit }, params ) {
+    axios.get(YANDEX_DICTIONARY_API + params.from + '-' + params.to + '&text=' + params.text)
     .then((response)=> {
       const res = JSON.stringify(response.data.def)
       commit('addCurrentTranslationToState', JSON.parse(res))
@@ -37,7 +42,7 @@ const actions = {
     })
   },
 
-  saveTranslation ({commit}, { article, translation }) {
+  saveTranslation ({commit, dispatch}, { article, translation }) {
     let translations = translation.tr.map((translation) => translation.text).join(', ')
     axios
       ({
@@ -58,7 +63,7 @@ const actions = {
         }
       })
       .then((response) => {
-        console.log(response);
+        dispatch('request_words')
       })
       .catch((error) => {
         console.log(error);
@@ -67,6 +72,9 @@ const actions = {
 }
 
 const getters = {
+  links: state => {
+    return state.days;
+  },
 
 }
 
