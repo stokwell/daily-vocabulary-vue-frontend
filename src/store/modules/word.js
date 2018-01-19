@@ -2,8 +2,8 @@ import axios from 'axios'
 
 const YANDEX_DICTIONARY_API = `https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20171227T131943Z.b0b60611e36d7e6a.296e4b9f91bce940a11dad18a08a8df28009ab0b&lang=`
 
-const BASE_URL = 'http://localhost:3000/api/words'
-const PRODUCTION_BASE_URL  = 'https://nameless-bayou-47211.herokuapp.com/api/words'
+//const BASE_URL = 'http://localhost:3000/api/words'
+const BASE_URL  = 'https://nameless-bayou-47211.herokuapp.com/api/words'
 
 const state = {
   currentTranslation: [],
