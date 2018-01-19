@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //const BASE_URL = "http://localhost:3000/api"
-const BASE_URL = "https://nameless-bayou-47211.herokuapp.com/api/"
+const BASE_URL = "https://nameless-bayou-47211.herokuapp.com/api"
 
 const state = {
   isLogged: !!localStorage.getItem('token')
