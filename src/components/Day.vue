@@ -22,7 +22,6 @@ export default {
       return this.$moment(date, 'YYYY-MM-DD').format('LL');
     }
   },
-
   computed: {
     day () {
       return this.$store.state.word.days[this.$route.params.day]
@@ -31,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 #words-list {
   background: #fff;
   border-radius: 4px;

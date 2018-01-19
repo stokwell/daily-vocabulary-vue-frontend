@@ -20,7 +20,7 @@ const mutations = {
 }
 
 const actions = {
-  request_words ({commit}) {
+  requestWords ({commit}) {
     axios.get(BASE_URL, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -63,7 +63,7 @@ const actions = {
         }
       })
       .then((response) => {
-        dispatch('request_words')
+        dispatch('requestWords')
       })
       .catch((error) => {
         console.log(error);

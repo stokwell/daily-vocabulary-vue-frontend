@@ -2,12 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import store from '../store'
-import index from '../pages/index'
 
 import Translation from '../components/Translation'
 import Day from '../components/Day'
 import Login from '../pages/Login'
-import Logout from '../pages/Logout'
 import Quotes from '../pages/Quotes'
 import PageNotFound from '../pages/404'
 import Dashboard from '../pages/Dashboard'
@@ -28,13 +26,7 @@ export default new Router({
       component: Quotes
     },
     {
-      path: '/logout',
-      name: 'logout',
-      conponent: Logout
-    },
-    {
       path: '/dashboard',
-      name: 'dashboard',
       component: Dashboard,
       beforeEnter(to, from, next) {
         if(store.state.user.isLogged){
